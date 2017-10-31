@@ -1,0 +1,47 @@
+.createNewBtn { float: right; display: block; background: #e61837; height: 35px; line-height: 35px; padding: 0 10px; color: #fff; font-size: 14px; }
+.carouselContainer { width: 1095px; float: left; overflow:hidden; clear:both; }
+.pendingGroups { padding: 20px; float: left; width: 100%; background: #f4f4f4; border: 1px solid #e4e4e4; margin: 40px 0 0 0; overflow:hidden; }
+.pendingGroups h2 { width: 100%; float: left; margin: 0 0 20px 0; }
+.pendingGroups ul {width:99999px; float: left; overflow:hidden;}
+.pendingGroups ul li { width: 320px; float: left; display: block; }
+.group { width: 300px; float: left; background: #fff; border: 1px solid #e4e4e4; padding: 20px; margin: 0 20px 0 0; }
+.group h3 { font-size: 15px; color: #0E2D7A; font-weight: bold; }
+.group .groupInfo { width: 100%; float: left; margin: 10px 0 0 0; }
+.group .groupInfo .col { width: 100%; float: left; color: #999; font-size: 13px; }
+.group .groupInfo .col span { padding: 0 0 8px 0; float: left; }
+.group .groupInfo .col a { color: #e61837; padding: 20px 20px 0 0; font-size: 13px; display: block; float: left; }
+.groupsListing { width: 100%; float: left; border-top: 1px solid #e4e4e4; margin: 40px 0 50px 0; padding: 20px 0; }
+.next, .prev { float: left; display: block; margin: 10px 20px 10px 0; cursor: pointer; }
+.groupsListing h2 { margin: 10px 0 30px 0; }
+.groupsListing .group { width: 350px; margin: 0 45px 45px 0; }
+.groupsListing .group:nth-of-type(3n) { margin-right: 0; } 
+.tabsContainer { width: 100%; float:left; border: 1px solid #e4e4e4; height: 52px; }
+.tabsContainer ul { width: 100%; float: left; }
+.tabsContainer ul li { float: left; width: 150px; height: 50px; line-height: 50px; text-align: center; border-right: 1px solid #e4e4e4; }
+.tabsContainer ul li:hover { background: #f4f4f4; cursor: pointer; }
+.tabsContainer ul li:hover a { color: #000; }
+.tabsContainer ul li.active { background: #f4f4f4; }
+.tabsContainer ul li.active a { color: #000; } 
+.tabsContainer ul li a { color: #666; text-decoration: none; display: block; width: 100%; }
+.tabsContent { width: 100%; border: 1px solid #e4e4e4; float: left; padding: 20px; border-top: 0; }
+.tabsContent .content { float: left; width: 100%; display: none; }
+.content span { font-size: 14px; color: #666; display: block; float: left; }
+.content span.value { width: 90%; padding: 0 0 10px 10px; }
+.content p { font-size: 14px; color: #666; padding: 20px 0 0 0; line-height: 21px; float: left; }
+.members ul { width: 100%; float: left; }
+.members ul li { width: 33.3%; float: left; display: block; margin: 0 0 25px 0; font-size: 14px; color: #666; }
+.members ul li img { display: block; float: left; }
+.members ul li span { display: block; float: left; padding: 18px 0 0 8px; }
+.searchBox { float: left; width: 100%; height: 50px; margin: 0 0 30px 0; }
+.searchBox span { font-size: 16px;  padding: 15px 0 0 0; color: #0E2D7A; }
+.searchBox  input[type=text] { margin: 0 0 0 25px; padding: 0 10px; }
+.issueBox { width: 100%; float: left; border: 1px solid #f4f4f4; padding: 10px; margin: 0 0 20px 0; }
+.issueBox a { font-size: 14px; padding: 20px 30px 20px 0; color: #e61837; display: block; float: left; }
+.actionBar { float: left; width: 100%; margin: 0 0 30px 0; text-align: right;}
+.actionBar input[type=button] { width: 100px; height: 35px; font-size: 13px; color: #fff; background: #e61837; border: 0; margin: 0 0 0 20px;}
+
+@media (max-width:1169px){
+    .groupsListing .group{
+        width: 296px;
+    }
+}

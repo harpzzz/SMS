@@ -1,0 +1,10 @@
+
+.site-visit-summary{
+    width: 100%;
+    display: table;
+    table-layout:fixed;
+}
+
+.site-visit-summary > div{
+    display:table-cell;
+}

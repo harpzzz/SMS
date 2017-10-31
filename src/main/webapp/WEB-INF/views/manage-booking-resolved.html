@@ -1,0 +1,98 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<link href="css/common.css" rel="stylesheet" type="text/css" />
+<link href="css/jquery.datetimepicker.min.css" rel="stylesheet" type="text/css" />
+<title>Mahindra CLAPP - Update & Reminder</title>
+</head>
+<body>
+<header>
+  <div class="logo"><img src="images/logo.png" width="250" height="28" /></div>
+    <div class="rightSection">
+         <a href="dashboard.html" class="pull-left mar-r-20 pad-all-20 mar-t-10">Home</a>
+    <div class="changeProperty">
+      <label for="ddlChangeProperty">Change Property</label>
+      <select id="ddlChangeProperty" name="ddlChangeProperty">
+        <option value="none">Happinest</option>
+        <option value="none">Happinest</option>
+      </select>
+    </div>
+    <div class="toggleMenu">Welcome <span class="username">Administrator</span>
+      <div class="toogleMenuItem">
+        <ul>
+          <li><a href="javascript:void(0);" title="Notifications">Notifications</a></li>
+          <li><a href="javascript:void(0);" title="Change Password">Change Password</a></li>
+          <li><a href="javascript:void(0);" title="Logout">Logout</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>
+<div class="wrapper">
+  <h1>Manage Bookings - Resolve</h1>
+  <h3>Ticket No: <span class="text-primary">#1234</span></h3>
+  <div class="panel mar-t-20 pad-all-20">
+    <div class="row">
+      <div class="col-6">
+        <div class="pull-left">Request Details: <span class="text-red">Pending</span></div>
+        <div class="clearBoth"></div>
+        <ul class="listing mar-t-20">
+          <li>Name: <span class="text-light-gray">Akhil Sharma</span></li>
+          <li>Email: <span class="text-light-gray">akhil@milagro.in</span></li>
+          <li>Mobile: <span class="text-light-gray">+919845663458</span></li>
+          <li>Title: <span class="text-light-gray">Birthday Party</span></li>
+          <li>Date/ Time: <span class="text-light-gray"><span class="date">Sunday June 25, 2017</span> |  From <span class="time">07:00 pm to 11:00 pm</span></span></li>
+          <li>Description: <span class="text-light-gray">We need hall for 15 people for birthday party</span> </li>
+        </ul>
+      </div>
+      <div class="col-6">
+        <div class="pull-left">Request Details: <span class="text-red">Pending</span></div>
+        <div class="clearBoth"></div>
+        <div class="mar-t-20">
+        <input type="text" id="datetimepicker"/>
+          </div>
+      </div>
+      <div class="clearBoth"></div>
+      </div>
+          <h3 class="pull-left">Resolve:</h3>
+          <label class="pull-left width-auto mar-l-10">
+            <input type="checkbox">
+            Available</label>
+          <label class="pull-left width-auto mar-l-10">
+            <input type="checkbox">
+            Not Available</label>
+          <div class="clearBoth"></div>
+          <textarea class="mar-t-10"></textarea>
+       <button class="btn bg-red">Notify User</button>
+      <div class="clearBoth"></div>
+    
+    
+    <div class="clearBoth"></div>
+  </div>
+  <input type="submit" class="btn bg-red mar-t-20" value="Submit">
+</div>
+<footer> Copyrights &copy; 2017 Mahindra Lifespaces Developers Ltd. </footer>
+<div class="clearBoth"></div>
+<script src="js/lib/jquery-1.12.4/jquery-1.12.4.min.js" type="text/javascript"></script> 
+<script src="js/common.js" type="text/javascript"></script> 
+<script src="js/jquery.datetimepicker.full.min.js" type="text/javascript"></script> 
+<script type="text/javascript">
+
+
+ 
+  
+        $('#datetimepicker').datetimepicker({
+        format: 'd.m.Y H:i',
+        inline: true
+      });
+
+
+
+
+  
+        </script>
+</body>
+</html>
