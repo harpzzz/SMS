@@ -1,18 +1,21 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!doctype html>
 <html>
 <head>
 <meta charset="UTF-8">
 <meta name="robots" content="noindex, nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-<link href="css/common.css" rel="stylesheet" type="text/css" />
-<link href="css/groups.css" rel="stylesheet" type="text/css" />
-<title>Mahindra CLAPP - Manage Groups</title>
+<link href="<c:url value='/resources/css/common.css'/>" rel="stylesheet" type="text/css" />
+<link href="<c:url value='/resources/css/groups.css'/>" rel="stylesheet" type="text/css" />
+<title>Manage Groups</title>
 </head>
 <body>
 <header>
-  <div class="logo"><img src="images/logo.png" width="250" height="28" /></div>
+  <div class="logo"><img src="<c:url value='/resources/images/logo.png'/>" width="250" height="28" /></div>
    <div class="rightSection">
-         <a href="dashboard.html" class="pull-left mar-r-20 pad-all-20 mar-t-10">Home</a>
+         <a href="dashboard" class="pull-left mar-r-20 pad-all-20 mar-t-10">Home</a>
     <div class="changeProperty">
       <label for="ddlChangeProperty">Change Property</label>
       <select id="ddlChangeProperty" name="ddlChangeProperty">
@@ -37,7 +40,7 @@
   <a href="javascript:void(0);" data-toggle="modal" data-target="#createGroup" class="btn-auto bg-red pull-right">Create New Group</a>
   <div class="pendingGroups"><!--Pending Groups-->
     <h2>Groups Pending for Approval</h2>
-    <img src="images/prev.png" class="prev" /> <img src="images/next.png" class="next" />
+    <img src="<c:url value='/resources/images/prev.png'/>" class="prev" /> <img src="<c:url value='/resources/images/next.png'/>" class="next" />
     <div class="carouselContainer">
       <ul class="carousel">
         <li>
@@ -191,7 +194,7 @@
           <div class="row">
             <div class="img-box pull-left">
               <div class="img-content"> </div>
-              <a href="javascript:void(0)" class="edit"><img src="images/edit.png"></a> <a href="javascript:void(0)" class="delete"><img src="images/delete.png"></a> </div>
+              <a href="javascript:void(0)" class="edit"><img src="<c:url value='/resources/images/edit.png'/>"></a> <a href="javascript:void(0)" class="delete"><img src="images/delete.png"></a> </div>
           </div>
           <div class="clearfix"></div>
           <div class="btn-upload pull-left mar-t-10">
@@ -210,8 +213,8 @@
   </div>
 </div>
 <div class="clearBoth"></div>
-<script src="js/lib/jquery-1.12.4/jquery-1.12.4.min.js" type="text/javascript"></script> 
-<script src="js/common.js" type="text/javascript"></script> 
-<script src="js/bootstrap.js" type="text/javascript"></script>
+<script src="<c:url value='/resources/js/lib/jquery-1.12.4/jquery-1.12.4.min.js'/>" type="text/javascript"></script> 
+<script src="<c:url value='/resources/js/common.js'/>" type="text/javascript"></script>  
+<script src="<c:url value='/resources/js/bootstrap.js'/>" type="text/javascript"></script>
 </body>
 </html>

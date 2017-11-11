@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
 <link href="<c:url value='/resources/css/common.css'/>" rel="stylesheet" type="text/css" />
 <link href="<c:url value='/resources/css/dashboard.css'/>" rel="stylesheet" type="text/css" />
-<title>Mahindra CLAPP - Dashboard</title>
+<title>Dashboard</title>
 </head>
 <body>
 
@@ -38,8 +38,8 @@
     <div class="db-row">
       <div class="db-table">
         <div class="db-table-row">
-          <div class="db-table-col"><a href="groups-listing.html"> <img  src="<c:url value='/resources/images/group.png'/>" alt="Manage Group"><br>Manage Groups</a></div>
-          <div class="db-table-col"><a href="events-listing.html"> <img  src="<c:url value='/resources/images/event.png'/>" alt="Manage Event"><br>Manage events </a> </div>
+          <div class="db-table-col"><a href="manageGroup"> <img  src="<c:url value='/resources/images/group.png'/>" alt="Manage Group"><br>Manage Groups</a></div>
+          <div class="db-table-col"><a href="manageEvents"> <img  src="<c:url value='/resources/images/event.png'/>" alt="Manage Event"><br>Manage events </a> </div>
           <div class="db-table-col"><a href="#"> <img src="<c:url value='/resources/images/notices.png'/>" alt="Manage Notices"><br>Manage notices </a> </div>
           <div class="db-table-col"><a href="manage-site.html"> <img src="<c:url value='/resources/images/site-visit.png'/>" alt="Manage site visit"><br>Manage site visit </a> </div>
         </div>
@@ -59,7 +59,7 @@
     </div>
   </div>
    
-  <footer> Copyrights &copy; 2017 Mahindra Lifespaces Developers Ltd. </footer>
+  <footer> Copyrights &copy; 2017 Developers Ltd. </footer>
 
  <div class="clearBoth"></div>
 <script src="<c:url value='/resources/js/lib/jquery-1.12.4/jquery-1.12.4.min.js'/>"  type="text/javascript"></script> 

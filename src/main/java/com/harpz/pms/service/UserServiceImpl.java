@@ -7,7 +7,16 @@ package com.harpz.pms.service;
 
 import com.harpz.pms.dao.UserDAO;
 import com.harpz.pms.model.MUser;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 /**
@@ -23,8 +32,39 @@ public class UserServiceImpl implements UserService {
     UserDAO userDao;
     
     @Override
-    public MUser getUserDetailByEmailPassword(String email, String password) {
-       return userDao.getUserDetailByEmailPassword("mharpreetsingh@gmail.com", "12345678");
+    public UserDetails getUserDetailByEmailPassword(String email, String password) throws UsernameNotFoundException {
+        
+        
+        MUser user = userDao.getUserDetailByEmailPassword("mharpreetsingh@gmail.com", "12345678"); 
+        
+        List<GrantedAuthority> authorities = buildUserAuthority();
+
+	return buildUserForAuthentication(user, authorities);
+
     }
     
+  
+	// org.springframework.security.core.userdetails.User
+	private User buildUserForAuthentication(MUser user,
+		List<GrantedAuthority> authorities) {
+		return new User(user.getUEmail(), user.getUPassword(),
+			true, true, true, true, authorities);
+	}
+
+	private List<GrantedAuthority> buildUserAuthority() {
+
+		Set<GrantedAuthority> setAuths = new HashSet<GrantedAuthority>();
+
+		// Build user's authorities
+		//for (UserRole userRole : userRoles) {
+		//	setAuths.add(new SimpleGrantedAuthority(userRole.getRole()));
+		//}
+               
+                setAuths.add(new SimpleGrantedAuthority("admin"));
+                
+
+		List<GrantedAuthority> Result = new ArrayList<GrantedAuthority>(setAuths);
+
+		return Result;
+	}
 }

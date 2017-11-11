@@ -19,7 +19,7 @@
 	<div class="wrapper">
     	<h1 class="loginHeading">Sign In to Admin Panel</h1>
         <div class="loginContainer clearBoth">
-            <form method="post" action="dashboard">
+            <form id="formLogin">
         	<label for="txtUserName">Username*</label>
             <input type="text" id="txtUsername" name="txtUsername" maxlength="100" title="Please enter username" />
             <label for="txtPassword">Password*</label>
@@ -33,4 +33,31 @@
     </footer>
 </div>
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+$('#formLogin').on('submit',function(e){
+    e.preventDefault();
+    
+    $email = $('#txtUsername').val();
+    $password = $('#txtPassword').val();
+    
+    $.ajax({
+        
+        type     : "POST",
+        url      : "loginchk",
+        data     : { email : $email  , password :  $password },
+        dataType : "text",
+        success  : function(msg) {
+            if(msg == "yes"){
+                 window.location.href="dashboard";
+            }
+            
+        },
+        error: function (data , err) {
+            alert(err);
+        }
+    });
+
+});
+    </script>
 </html>

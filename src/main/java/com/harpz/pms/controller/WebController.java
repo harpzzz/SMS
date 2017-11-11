@@ -11,16 +11,20 @@ import com.harpz.pms.model.MUser;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 /**
  *
  * @author Neha Thakur
  */
 
 @Controller
+@Scope("session")
 public class WebController {
     
     
@@ -34,18 +38,35 @@ public class WebController {
     }  
     
     
-    @RequestMapping(value= "/dashboard", method = RequestMethod.POST)
-    public String loginChk(HttpServletRequest request,
-            HttpServletResponse response, Model model){
+    @RequestMapping(value= "/loginchk", method = RequestMethod.POST)
+    @ResponseBody
+    public String loginChk(@RequestParam("email") String email,@RequestParam("password") String password){
     
        
-       MUser  muser = userDAO.getUserDetailByEmailPassword(request.getParameter("email"), request.getParameter("password"));
+        
+ //      MUser  muser = userDAO.getUserDetailByEmailPassword(email, password);
         
       //  return muser.toString();
         
-         return "dashboard";
+         return "yes";
     
     }
-      
     
+    @RequestMapping(value = "/dashboard", method = RequestMethod.GET)
+    public String dashboard(){
+    
+        return "dashboard";
+    }
+      
+    @RequestMapping(value = "/manageGroup", method = RequestMethod.GET)
+    public String manageGroup(){
+    
+        return "groups-listing";
+    }
+    
+     @RequestMapping(value = "/manageEvents", method = RequestMethod.GET)
+    public String manageEvents(){
+    
+        return "events-listing";
+    }
 }

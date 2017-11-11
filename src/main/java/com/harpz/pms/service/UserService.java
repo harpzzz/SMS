@@ -6,6 +6,7 @@
 package com.harpz.pms.service;
 
 import com.harpz.pms.model.MUser;
+import org.springframework.security.core.userdetails.UserDetails;
 
 /**
  *
@@ -13,5 +14,5 @@ import com.harpz.pms.model.MUser;
  */
 public interface UserService {
      
-    MUser getUserDetailByEmailPassword(String email,String password);
+    UserDetails getUserDetailByEmailPassword(String email,String password);
 }
