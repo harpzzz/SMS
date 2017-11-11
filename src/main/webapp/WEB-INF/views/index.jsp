@@ -29,7 +29,7 @@
         </div>
     </div>
     <footer>
-    	Copyrights &copy; 2017 Mahindra Lifespaces Developers Ltd.
+    	Copyrights &copy; 2017  Developers Ltd.
     </footer>
 </div>
 </body>
