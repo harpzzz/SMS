@@ -12,11 +12,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 /**
@@ -32,20 +27,22 @@ public class UserServiceImpl implements UserService {
     UserDAO userDao;
     
     @Override
-    public UserDetails getUserDetailByEmailPassword(String email, String password) throws UsernameNotFoundException {
+    public MUser getUserDetailByEmailPassword(String email, String password) {
         
         
         MUser user = userDao.getUserDetailByEmailPassword("mharpreetsingh@gmail.com", "12345678"); 
         
-        List<GrantedAuthority> authorities = buildUserAuthority();
+        
+        return user;
+      //  List<GrantedAuthority> authorities = buildUserAuthority();
 
-	return buildUserForAuthentication(user, authorities);
+	//return buildUserForAuthentication(user, authorities);
 
     }
     
   
 	// org.springframework.security.core.userdetails.User
-	private User buildUserForAuthentication(MUser user,
+/*	private User buildUserForAuthentication(MUser user,
 		List<GrantedAuthority> authorities) {
 		return new User(user.getUEmail(), user.getUPassword(),
 			true, true, true, true, authorities);
@@ -67,4 +64,5 @@ public class UserServiceImpl implements UserService {
 
 		return Result;
 	}
+*/
 }

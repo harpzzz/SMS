@@ -36,7 +36,6 @@ import org.springframework.web.servlet.view.JstlView;
 @EnableWebMvc
 @ComponentScan(basePackages = "com.harpz.pms")
 @EnableTransactionManagement
-@Import({ SecurityConfig.class })
 public class AppConfig extends WebMvcConfigurerAdapter {
     
    @Autowired

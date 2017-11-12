@@ -24,7 +24,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
  */
 
 @Controller
-@Scope("session")
 public class WebController {
     
     
