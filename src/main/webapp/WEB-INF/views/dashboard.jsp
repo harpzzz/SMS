@@ -38,8 +38,8 @@
     <div class="db-row">
       <div class="db-table">
         <div class="db-table-row">
-          <div class="db-table-col"><a href="manageGroup"> <img  src="<c:url value='/resources/images/group.png'/>" alt="Manage Group"><br>Manage Groups</a></div>
-          <div class="db-table-col"><a href="manageEvents"> <img  src="<c:url value='/resources/images/event.png'/>" alt="Manage Event"><br>Manage events </a> </div>
+          <div class="db-table-col"><a href="dashboard/manageGroup"> <img  src="<c:url value='/resources/images/group.png'/>" alt="Manage Group"><br>Manage Groups</a></div>
+          <div class="db-table-col"><a href="dashboard/manageEvents"> <img  src="<c:url value='/resources/images/event.png'/>" alt="Manage Event"><br>Manage events </a> </div>
           <div class="db-table-col"><a href="#"> <img src="<c:url value='/resources/images/notices.png'/>" alt="Manage Notices"><br>Manage notices </a> </div>
           <div class="db-table-col"><a href="manage-site.html"> <img src="<c:url value='/resources/images/site-visit.png'/>" alt="Manage site visit"><br>Manage site visit </a> </div>
         </div>
@@ -64,6 +64,9 @@
  <div class="clearBoth"></div>
 <script src="<c:url value='/resources/js/lib/jquery-1.12.4/jquery-1.12.4.min.js'/>"  type="text/javascript"></script> 
 <script src="<c:url value='/resources/js/common.js'/>" type="text/javascript"></script>
+
+
+
   
 </body>
 </html>

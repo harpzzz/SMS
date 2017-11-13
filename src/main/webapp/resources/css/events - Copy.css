@@ -1,8 +1,0 @@
-.eventsListing { border: 1px solid #e4e4e4; width: 100%; padding: 0 20px; float: left; margin: 20px 0 20px 0; }
-.eventsListing ul { width: 100%; float: left; }
-.eventsListing ul li { width: 100%; float: left; display: block; padding: 20px 0; border-bottom: 1px solid #e4e4e4; }
-.eventsListing ul li span.eventsTitle { font-size: 15px; color: #666; float: left; display: block; width: 80%; }
-.eventsListing ul li span.eventsTitle a { color: #666; text-decoration: none; }
-.eventsListing ul li span.eventsTitle a:hover { text-decoration: underline; }
-.eventsListing ul li span.eventDateTime { font-size: 13px; width: 15%; color: #666; float: right; }
-.createNewBtn { float: right; display: block; background: #e61837; height: 35px; line-height: 35px; padding: 0 10px; color: #fff; font-size: 14px; }

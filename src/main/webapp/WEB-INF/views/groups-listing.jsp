@@ -182,6 +182,8 @@
         <h2 class="modal-title text-primary">Create Group</h2>
       </div>
       <div class="modal-body">
+          
+          <form  id="formCreateGroup" >
         <div class="panel pad-all-20 mar-b-20">
           <div class="row">
             <div class="col-6">
@@ -194,13 +196,14 @@
           <div class="row">
             <div class="img-box pull-left">
               <div class="img-content"> </div>
-              <a href="javascript:void(0)" class="edit"><img src="<c:url value='/resources/images/edit.png'/>"></a> <a href="javascript:void(0)" class="delete"><img src="images/delete.png"></a> </div>
+              <a href="javascript:void(0)" class="edit"><img src="<c:url value='/resources/images/edit.png'/>"></a> <a href="javascript:void(0)" class="delete"><img src="<c:url value='/resources/images/delete.png'/>"></a> </div>
           </div>
           <div class="clearfix"></div>
           <div class="btn-upload pull-left mar-t-10">
-            <label for="upload1" class="btn bg-red " type="button">Upload</label>
+            <label for="upload1" class="btn bg-red" type="button"> Upload</label>
             <input id="upload1" type="file" name="file-upload">
           </div>
+          
           <div class="clearfix"></div>
           <label for="chkNotify" class="mar-t-10">
             <input type="checkbox" id="chkNotify" name="chkNotify" />
@@ -208,6 +211,7 @@
           <div class="clearBoth"></div>
         </div>
         <input class="btn bg-red" type="submit" id="btnSubmit" name="btnSubmit" value="Submit" />
+        </form>
       </div>
     </div>
   </div>
@@ -216,5 +220,37 @@
 <script src="<c:url value='/resources/js/lib/jquery-1.12.4/jquery-1.12.4.min.js'/>" type="text/javascript"></script> 
 <script src="<c:url value='/resources/js/common.js'/>" type="text/javascript"></script>  
 <script src="<c:url value='/resources/js/bootstrap.js'/>" type="text/javascript"></script>
+<script>
+$('#formCreateGroup').on('submit',function(e){
+    e.preventDefault();
+    
+    var form = document.getElementById("formCreateGroup");
+    var formData = new FormData(form);
+    
+    $.ajax({
+        
+        type     : "POST",
+        url      : "createGroup",
+        data     : formData,
+        dataType : 'text',
+        processData: false,
+        contentType: false,
+        success  : function(msg) {
+            if(msg == "yes"){
+                // window.location.href="dashboard";
+            }else{
+                
+             //    $('#labelError').html("Please check your email and password");
+             }    
+      
+        },
+        error: function (data , err) {
+            alert(err);
+           
+        }
+    });
+
+});
+    </script>
 </body>
 </html>

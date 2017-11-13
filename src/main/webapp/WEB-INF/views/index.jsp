@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
 <link href="<c:url value='/resources/css/common.css'/>" rel="stylesheet" type="text/css" />
 <link href="<c:url value='/resources/css/login.css'/>" rel="stylesheet" type="text/css" />
-<title>Mahindra CLAPP - Sign In</title>
+<title>Sign In</title>
 </head>
 <body>
 <div class="container">
@@ -23,8 +23,10 @@
         	<label for="txtUserName">Username*</label>
             <input type="text" id="txtUsername" name="txtUsername" maxlength="100" title="Please enter username" />
             <label for="txtPassword">Password*</label>
-            <input type="text" id="txtPassword" name="txtPassword" maxlength="40" title="Please enter password" />
+            <input type="password" id="txtPassword" name="txtPassword" maxlength="40" title="Please enter password" />
+            <label id="labelError"></label>
             <input type="submit" value="Sign In" id="btnLogin" name="btnLogin" title="Please click here to Sign In" />
+            
             </form>
         </div>
     </div>
@@ -32,8 +34,7 @@
     	Copyrights &copy; 2017  Developers Ltd.
     </footer>
 </div>
-</body>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
 $('#formLogin').on('submit',function(e){
     e.preventDefault();
@@ -50,14 +51,18 @@ $('#formLogin').on('submit',function(e){
         success  : function(msg) {
             if(msg == "yes"){
                  window.location.href="dashboard";
-            }
-            
+            }else{
+                
+                 $('#labelError').html("Please check your email and password");
+             }    
+      
         },
         error: function (data , err) {
-            alert(err);
+           
         }
     });
 
 });
     </script>
+</body>
 </html>

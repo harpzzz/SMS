@@ -30,7 +30,7 @@ public class UserServiceImpl implements UserService {
     public MUser getUserDetailByEmailPassword(String email, String password) {
         
         
-        MUser user = userDao.getUserDetailByEmailPassword("mharpreetsingh@gmail.com", "12345678"); 
+        MUser user = userDao.getUserDetailByEmailPassword(email, password); 
         
         
         return user;

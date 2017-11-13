@@ -44,8 +44,8 @@ public class UserDaoImpl implements UserDAO{
         
              String hql = "FROM MUser E where E.uEmail = :email AND E.uPassword = :password";
                 Query query = getCurrentSession().createQuery(hql);
-                query.setParameter("email", "harpreet.singh@milago.in");
-                query.setParameter("password", "12345678");
+                query.setParameter("email", email);
+                query.setParameter("password", password);
 
                 MUser muser = (MUser) query.uniqueResult();
           
