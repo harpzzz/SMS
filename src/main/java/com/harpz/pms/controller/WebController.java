@@ -7,12 +7,19 @@ package com.harpz.pms.controller;
 
 
 import com.harpz.pms.daoImpl.UserDaoImpl;
+import com.harpz.pms.model.MGroupdtl;
 import com.harpz.pms.model.MUser;
+import com.harpz.pms.service.GroupServiceImpl;
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +32,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 /**
  *
  * @author Neha Thakur
@@ -35,6 +43,12 @@ import org.springframework.web.multipart.MultipartFile;
 @RequestMapping("/dashboard")
 public class WebController {
    
+    
+    @Autowired
+    GroupServiceImpl groupServiceImpl;
+    
+    @Autowired
+    ServletContext servletContext;
     
     private static final Logger LOGGER = Logger.getLogger(WebController.class.getName());
 
@@ -55,51 +69,89 @@ public class WebController {
     @ResponseBody
     public String createGroup(@RequestParam("txtGrpTitle") String groupName,
                               @RequestParam("txtGrpDesc") String groupDescription,
-                              @RequestParam("file-upload") MultipartFile groupImage){
+                              @RequestParam("file-upload") MultipartFile groupImage,
+                              HttpServletRequest request){
     
         
-       if (!groupImage.isEmpty()) {
-			try {
-				byte[] bytes = groupImage.getBytes();
-
-				// Creating the directory to store file
-				String rootPath = System.getProperty("com.pms");
-				File dir = new File(rootPath + File.separator + "tmpFiles");
-				if (!dir.exists())
-					dir.mkdirs();
-
-				// Create the file on server
-				File serverFile = new File(dir.getAbsolutePath()
-						+ File.separator + 1);
-				BufferedOutputStream stream = new BufferedOutputStream(
-						new FileOutputStream(serverFile));
-				stream.write(bytes);
-				stream.close();
-
-				LOGGER.info("Server File Location="
-						+ serverFile.getAbsolutePath());
-                                
-                                
-                                
-
-				return "created";
-			} catch (Exception e) {
-				return "error => " + e.getMessage();
-			}
-		} else {
-			return "error because the file was empty.";
-		}
+            String latestUploadPhoto = "";
+           
+         
+         String path = request.getSession().getServletContext().getRealPath("/resources/uImages");
+        File dir = new File(path);
+        if (!dir.exists()) {
+            dir.mkdirs();
+        }
+        
+        
+  
+        File serverFile = new File(dir.getAbsolutePath() + File.separator + groupImage.getOriginalFilename());
+        latestUploadPhoto = groupImage.getOriginalFilename();
+         
+    //write uploaded image to disk
+        try {
+            try (InputStream is = groupImage.getInputStream(); BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(serverFile))) {
+                int i;
+                while ((i = is.read()) != -1) {
+                    stream.write(i);
+                }
+                stream.flush();
+                
+                
+               int id = groupServiceImpl.createGroup(1, groupName, groupDescription, groupImage.getOriginalFilename());
+                
+                
+               if(id != -1){
+               
+                   return "true";
+               }else{
+               
+                   return "false";
+               }
+                
+                
+            }
+        } catch (IOException e) {
+            
+            System.out.println("error : " + e.getMessage());
+        }
        
-    
+        return "false";
       
-    }
+        }
     
     
     
     
-     @RequestMapping(value = "/manageEvents", method = RequestMethod.GET)
+    @RequestMapping(value = "/manageEvents", method = RequestMethod.GET)
     public String manageEvents(){
     
         return "events-listing";
     }
+    
+    
+    @RequestMapping(value = "/getGroupList" ,  method = RequestMethod.POST)
+    @ResponseBody
+    public ArrayList<MGroupdtl> getGroupList(){
+    
+        
+        ArrayList<MGroupdtl> al = groupServiceImpl.getGroupList(1);
+        
+     /*   ModelAndView mv = new ModelAndView();
+        
+        if(al.size() > 0){
+        
+            mv.addObject("groupList",al);
+            mv.addObject("status","true");
+        
+        }else{
+        
+            mv.addObject("status","false");
+            
+        }
+        
+       */ 
+        return al;
+    
+    }
+
 }
